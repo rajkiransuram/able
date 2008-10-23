@@ -1,0 +1,8 @@
+<%--@elvariable id="formId" type="java.lang.String"--%>
+<%@ include file="/WEB-INF/jsp/include/taglibs.jspf" %>
+<%@ attribute name="name" required="true" type="java.lang.String" %>
+<%@ attribute name="fieldClass" required="false" type="java.lang.String" %>
+<c:set var="id" value="${formId}_${name}"/>
+<c:if test="${fieldClass == null || fieldClass == ''}">
+    <c:set var="fieldClass" value="medium"/>
+</c:if>
