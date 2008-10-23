@@ -1,0 +1,179 @@
+a, a:visited, .link {
+    color: #0033ff;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+body {
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 24px;
+    border-bottom: 2px solid #333333;
+}
+
+.highlight {
+    background-color: #ffff66;
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-left: -2px;
+    margin-right: -2px;
+    font-weight: bold;
+}
+
+th, td {
+    border: 0;
+    padding: 0;
+}
+
+table {
+    margin: 0;
+}
+
+#main {
+    margin: 0 auto;
+    width: 850px;
+}
+
+#header {
+    height: 32px;
+    background-image: url( "/images/header.png" );
+    margin-bottom: 20px;
+    position: relative;
+}
+
+#logo {
+    position: absolute;
+    left: 17px;
+    top: 3px;
+}
+
+#navlinks {
+    position: absolute;
+    right: 17px;
+    top: 4px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#bread_crumbs {
+    padding: 0 25px;
+    margin-bottom: 10px;
+    font-size: 11px;
+}
+
+#content {
+    padding: 0 25px;
+}
+
+#footer {
+    border-top: 1px solid black;
+    padding-top: 3px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Stripes messsage-related stuff */
+
+.messages {
+    background-color: #ccffcc;
+    border: 1px solid #000;
+    padding: 5px;
+    margin: 5px 15px;
+}
+
+/* Form-related stuff */
+
+.form_container {
+    padding: 0 15px 0 15px;
+}
+
+.form_title {
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid #333333;
+    margin-bottom: 10px;
+    padding-bottom: 2px;
+}
+
+.form_label {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.form_error {
+    font-size: 10px;
+    padding: 1px 3px 1px 3px;
+}
+
+.form_error li {
+    display: inline;
+}
+
+.form_field {
+    margin-bottom: 6px;
+    margin-top: 3px;
+}
+
+.form_field.left, .form_label.left {
+    margin-right: 15px;
+}
+
+.form_label.error {
+    color: #ff0000;
+}
+
+.form_field input.small, .form_field textarea.small, .form_field select.small {
+    width: 75px
+}
+
+.form_field input.medium, .form_field textarea.medium, .form_field select.medium {
+    width: 150px
+}
+
+.form_field input.large, .form_field textarea.large, .form_field select.large {
+    width: 316px
+}
+
+.form_field input, .form_field textarea, .form_field select {
+    margin-bottom: 5px;
+}
+
+.form_field select {
+    margin-right: 6px;
+}
+
+.form_errors {
+    color: #ff0000;
+    font-size: 11px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.multi_column_form td {
+    padding-left: 10px;
+}
+
+.multi_column_form td.first {
+    padding-left: 0;
+}
+
+.form_errors li {
+    list-style: circle;
+    font-size: 10px;
+}
+
+fieldset {
+    padding: 5px;
+    border: 1px solid #666;
+}
+
+legend {
+    padding: 0 5px;
+    font-size: 13px;
+}
+
+.checkbox_hint {
+    color: #666;
+}
