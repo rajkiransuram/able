@@ -1,15 +1,11 @@
 package able.user;
 
 import org.hibernate.validator.Length;
-import org.hibernate.annotations.Tuplizer;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
-import able.hibernate.GuiceComponentTuplizer;
-
 @Embeddable
-@Tuplizer(impl = GuiceComponentTuplizer.class)
 public class Address {
     @Column(name = "address_line_1")
     @Length(min = 0, max = 64)
