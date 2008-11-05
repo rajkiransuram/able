@@ -7,11 +7,13 @@ import com.google.inject.matcher.Matchers;
 import able.stripes.util.AuthRequired;
 import able.stripes.util.AuthRequiredIntereptor;
 import able.stripes.util.ResourceBundleReset;
+import able.guice.GuiceServletContextListner;
 import net.sourceforge.stripes.action.ActionBean;
 import net.sourceforge.stripes.action.DefaultHandler;
 import net.sourceforge.stripes.action.HandlesEvent;
 import net.sourceforge.stripes.action.Resolution;
 import net.sourceforge.stripes.util.ResolverUtil;
+import net.sourceforge.stripes.util.ObjectFactory;
 
 import java.lang.reflect.Method;
 import java.util.Set;
@@ -38,5 +40,11 @@ public class StripesModule implements Module {
         }
 
         binder.bind(ResourceBundleReset.class);
+
+        ObjectFactory.setInstance(new ObjectFactory() {
+            public <T> T newInstance(Class<T> clazz) {
+                return GuiceServletContextListner.newInstance(clazz);
+            }
+        });
     }
 }
