@@ -11,7 +11,6 @@ import org.hibernate.annotations.Tuplizer;
 
 @Entity
 @Table(name = "account")
-@Tuplizer(impl = GuiceEntityTuplizer.class)
 public class Account {
     @Id
     @GeneratedValue

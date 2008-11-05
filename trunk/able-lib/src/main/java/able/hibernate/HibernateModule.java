@@ -9,6 +9,7 @@ import able.util.Log;
 import com.wideplay.warp.persist.PersistenceService;
 import com.wideplay.warp.persist.UnitOfWork;
 import org.hibernate.MappingException;
+import org.hibernate.EntityMode;
 import org.hibernate.annotations.Tuplizer;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
@@ -40,56 +41,9 @@ public class HibernateModule implements Module {
                     }
                 }
             }
-
-            public AnnotationConfiguration addAnnotatedClass(Class persistentClass) throws MappingException {
-                //noinspection unchecked
-                Tuplizer tuplizer = (Tuplizer) persistentClass.getAnnotation(Tuplizer.class);
-                //noinspection unchecked
-                Entity entity = (Entity) persistentClass.getAnnotation(Entity.class);
-                //noinspection unchecked
-                Embeddable embeddable = (Embeddable) persistentClass.getAnnotation(Embeddable.class);
-
-                if (entity == null && embeddable == null) {
-                    error(persistentClass, "@Entity or @Embeddable required on");
-                }
-
-                if (entity != null) {
-                    if (tuplizer == null || tuplizer.impl() != GuiceEntityTuplizer.class) {
-                        error(persistentClass, "@Tuplizer(impl = GuiceEntityTuplizer.class) not added to");
-                    }
-                } else {
-                    if (tuplizer == null || tuplizer.impl() != GuiceComponentTuplizer.class) {
-                        error(persistentClass, "@Tuplizer(impl = GuiceComponentTuplizer.class) not added to");
-                    }
-                }
-
-                //noinspection unchecked
-                binder.bind(persistentClass);
-
-                return super.addAnnotatedClass(persistentClass);
-            }
-
-            private void error(Class persistentClass, String error) {
-                System.err.println("");
-                System.err.println("");
-                System.err.println("***************************************************");
-                System.err.println("");
-                System.err.println("");
-                System.err.println("" + error);
-                System.err.println("");
-                System.err.println("\t" + persistentClass.getName());
-                System.err.println("");
-                System.err.println(" Hibernate can NOT be started.");
-                System.err.println("");
-                System.err.println("");
-                System.err.println("***************************************************");
-                System.err.println("");
-                System.err.println("");
-
-                throw new RuntimeException(error + " " + persistentClass.getName());
-            }
         };
         c.setInterceptor(new GuiceInterceptor());
+        c.getEntityTuplizerFactory().registerDefaultTuplizerClass(EntityMode.POJO, GuiceEntityTuplizer.class);
 
         c.configure();
         binder.bind(Configuration.class).toInstance(c);

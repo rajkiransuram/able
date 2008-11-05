@@ -17,7 +17,6 @@ import javax.persistence.*;
     @NamedQuery(name = User.Q_BY_EMAIL, query = "select u from User u where email = :email"),
     @NamedQuery(name = User.Q_BY_EMAIL_AND_PASSWORD, query = "select u from User u where email = :email and password = :password")
         })
-@Tuplizer(impl = GuiceEntityTuplizer.class)
 public class User {
     public static final String Q_BY_USER_ID = "User.byUserId";
     public static final String Q_BY_EMAIL = "User.byEmail";
