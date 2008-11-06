@@ -1,46 +1,62 @@
 package able.guice;
 
-import com.google.inject.Binder;
-import com.google.inject.Module;
-import com.google.inject.servlet.ServletModule;
-import able.account.AccountManager;
 import able.dwr.DwrModule;
 import able.guice.configuration.ConfigurationModule;
 import able.hibernate.HibernateModule;
 import able.stripes.StripesModule;
 import able.user.Blowfish;
-import able.user.UserManager;
 import able.util.Log;
 import able.util.StandardFormatter;
+import com.google.inject.Binder;
+import com.google.inject.Module;
+import com.google.inject.Stage;
+import com.google.inject.servlet.ServletModule;
 
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.List;
 
 public class AbleModule implements Module {
     private static final Log LOG = new Log();
 
+    private ConfigurationModule configurationModule;
+    private StripesModule stripesModule;
+    private HibernateModule hibernateModule;
+
+    public AbleModule(ConfigurationModule configurationModule) {
+        this(configurationModule, new StripesModule());
+    }
+
+    public AbleModule(ConfigurationModule configurationModule, StripesModule stripesModule) {
+        this.configurationModule = configurationModule;
+        this.stripesModule = stripesModule;
+    }
+
+    public Stage getGuiceStage() {
+        return Stage.DEVELOPMENT;
+    }
+
     public void configure(Binder binder) {
         configureLogging();
 
+        binder.install(configurationModule);
         binder.install(new ServletModule());
-        binder.install(new HibernateModule());
-
-        // bind your dependencies here
-        //binder.bind(ReportManager.class).asEagerSingleton();
-
-        binder.bind(Blowfish.class);
-        binder.bind(UserManager.class);
-        binder.bind(AccountManager.class);
-
-        binder.install(new ConfigurationModule());
-
-        binder.install(new StripesModule());
+        hibernateModule = new HibernateModule(configurationModule);
+        binder.install(hibernateModule);
+        binder.install(stripesModule);
         binder.install(new DwrModule());
+
+        // bind utility stuff
+        binder.bind(Blowfish.class);
     }
 
-    private void configureLogging() {
+    public List<Class> getHibernateEntities() {
+        return hibernateModule.getEntities();
+    }
+
+    protected void configureLogging() {
         Logger root = Logger.getLogger("");
         Handler[] existing = root.getHandlers();
         for (Handler handler : existing) {

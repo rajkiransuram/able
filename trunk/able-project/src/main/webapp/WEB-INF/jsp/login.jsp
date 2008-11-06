@@ -6,7 +6,7 @@
 
 <body>
 
-<form:form beanclass="able.stripes.LoginActionBean" title="Login">
+<form:form beanclass="com.acme.stripes.LoginActionBean" title="Login">
     <form:text name="user.email"/>
     <form:password name="user.password"/>
     <form:buttons>

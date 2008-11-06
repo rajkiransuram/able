@@ -6,12 +6,6 @@ import java.net.Socket;
 import java.util.concurrent.TimeUnit;
 
 public class SocketTestWaitCondition implements ThreadUtils.WaitCondition {
-    public static void main(String[] args) {
-        System.out.println(ThreadUtils.waitFor(new SocketTestWaitCondition("192.168.0.75", 22, 500),
-                TimeUnit.MINUTES, 10,
-                TimeUnit.SECONDS, 10));
-    }
-
     private String host;
     private int port;
     private int timeout;

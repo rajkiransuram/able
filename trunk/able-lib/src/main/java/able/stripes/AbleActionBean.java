@@ -1,19 +1,18 @@
 package able.stripes;
 
-import able.stripes.util.AbleActionBeanContext;
-import able.stripes.util.BetterScopedLocalizableError;
+import able.stripes.BetterScopedLocalizableError;
 import net.sourceforge.stripes.action.ActionBean;
 import net.sourceforge.stripes.action.ActionBeanContext;
 import net.sourceforge.stripes.action.LocalizableMessage;
 
 public abstract class AbleActionBean implements ActionBean {
-    protected AbleActionBeanContext context;
+    protected ActionBeanContext context;
 
     public void setContext(ActionBeanContext context) {
-        this.context = (AbleActionBeanContext) context;
+        this.context = context;
     }
 
-    public AbleActionBeanContext getContext() {
+    public ActionBeanContext getContext() {
         return context;
     }
 

@@ -16,7 +16,5 @@ public class AbleInitialization {
     public void init() {
         // start Warp-Persist/Hibernate
         persistenceService.start();
-
-        // note: you can start other items here too
     }
 }

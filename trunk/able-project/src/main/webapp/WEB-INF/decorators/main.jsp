@@ -23,14 +23,14 @@
         </div>
         <div id="navlinks">
             <c:if test="${actionBean.context.loggedIn}">
-                <s:link beanclass="able.stripes.HomeActionBean"><fmt:message key="home"/></s:link>
+                <s:link beanclass="com.acme.stripes.HomeActionBean"><fmt:message key="home"/></s:link>
                 |
-                <s:link beanclass="able.stripes.LogoutActionBean"><fmt:message key="logout"/></s:link>
+                <s:link beanclass="com.acme.stripes.LogoutActionBean"><fmt:message key="logout"/></s:link>
             </c:if>
             <c:if test="${!actionBean.context.loggedIn}">
-                <s:link beanclass="able.stripes.SignupActionBean"><fmt:message key="signup"/></s:link>
+                <s:link beanclass="com.acme.stripes.SignupActionBean"><fmt:message key="signup"/></s:link>
                 |
-                <s:link beanclass="able.stripes.LoginActionBean"><fmt:message key="login"/></s:link>
+                <s:link beanclass="com.acme.stripes.LoginActionBean"><fmt:message key="login"/></s:link>
             </c:if>
         </div>
     </div>

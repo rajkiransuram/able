@@ -1,6 +1,6 @@
 package able.hibernate;
 
-import able.guice.GuiceServletContextListner;
+import able.guice.AbleContextListener;
 import org.hibernate.tuple.Instantiator;
 
 import java.io.Serializable;
@@ -14,7 +14,7 @@ public class GuiceInstantiator implements Instantiator {
 
     public Object instantiate(Serializable id) {
         try {
-            return GuiceServletContextListner.getInjector().getInstance(Class.forName(entityName));
+            return AbleContextListener.getInjector().getInstance(Class.forName(entityName));
         } catch (Exception e) {
             e.printStackTrace();
             return null;

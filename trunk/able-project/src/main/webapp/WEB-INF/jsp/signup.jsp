@@ -6,7 +6,7 @@
 
 <body>
 
-<form:form beanclass="able.stripes.SignupActionBean" title="Signing Up is Easy!">
+<form:form beanclass="com.acme.stripes.SignupActionBean" title="Signing Up is Easy!">
     <form:multi-column-form-row>
         <jsp:attribute name="field1">
             <form:text name="user.firstName"/>
