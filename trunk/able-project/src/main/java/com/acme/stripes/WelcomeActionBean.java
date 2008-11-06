@@ -9,7 +9,7 @@ import net.sourceforge.stripes.action.Resolution;
 import net.sourceforge.stripes.action.UrlBinding;
 
 @UrlBinding("/welcome")
-public class WelcomeActionBean extends AcmeActionBean {
+public class WelcomeActionBean extends BaseActionBean {
     private UserManager userManager;
 
     @Inject

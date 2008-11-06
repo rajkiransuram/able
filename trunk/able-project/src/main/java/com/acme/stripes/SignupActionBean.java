@@ -13,7 +13,7 @@ import net.sourceforge.stripes.validation.ValidationMethod;
 
 @UrlBinding("/signup")
 @StrictBinding
-public class SignupActionBean extends AcmeActionBean {
+public class SignupActionBean extends BaseActionBean {
     private AccountManager accountManager;
     private UserManager userManager;
 

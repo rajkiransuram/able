@@ -11,7 +11,7 @@ import net.sourceforge.stripes.action.*;
 import net.sourceforge.stripes.validation.ValidationMethod;
 
 @UrlBinding("/login")
-public class LoginActionBean extends AcmeActionBean {
+public class LoginActionBean extends BaseActionBean {
     private UserManager userManager;
 
     @Inject
