@@ -4,7 +4,7 @@ import able.dwr.DwrModule;
 import able.guice.configuration.ConfigurationModule;
 import able.hibernate.HibernateModule;
 import able.stripes.StripesModule;
-import able.user.Blowfish;
+import able.util.Blowfish;
 import able.util.Log;
 import able.util.StandardFormatter;
 import com.google.inject.Binder;
