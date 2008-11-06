@@ -7,7 +7,7 @@ import net.sourceforge.stripes.action.Resolution;
 import net.sourceforge.stripes.action.UrlBinding;
 
 @UrlBinding("/home")
-public class HomeActionBean extends AcmeActionBean {
+public class HomeActionBean extends BaseActionBean {
     @DefaultHandler
     public Resolution execute() {
         Account account = getContext().getCurrentUser().getAccount();
