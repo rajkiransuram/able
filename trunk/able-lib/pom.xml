@@ -80,6 +80,31 @@
             <artifactId>hibernate-core</artifactId>
             <version>3.3.2-able-snapshot</version>
         </dependency>
+
+        <!-- START: copied from hibernate-core 3.3.1.GA's pom.xml until 3.3.2 comes out -->
+        <dependency>
+            <groupId>antlr</groupId>
+            <artifactId>antlr</artifactId>
+            <version>2.7.6</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+        <dependency>
+            <!-- YUCK, YUCK, YUCK!!!! -->
+            <groupId>javax.transaction</groupId>
+            <artifactId>jta</artifactId>
+            <version>1.1</version>
+        </dependency>
+        <!-- END: copied from hibernate-core 3.3.1.GA's pom.xml until 3.3.2 comes out -->
+
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
