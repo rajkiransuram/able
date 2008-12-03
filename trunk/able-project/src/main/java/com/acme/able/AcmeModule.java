@@ -6,12 +6,13 @@ import com.acme.account.AccountAccess;
 import com.acme.account.AccountManager;
 import com.acme.user.UserAccess;
 import com.acme.user.UserManager;
+import com.acme.stripes.AcmeStripesModule;
 import com.wideplay.warp.persist.UnitOfWork;
 import com.google.inject.Binder;
 
 public class AcmeModule extends AbleModule {
     public AcmeModule() {
-        super(new AcmeConfiguration(), new StripesModule());
+        super(new AcmeConfiguration(), new AcmeStripesModule());
     }
 
     public void configure(Binder binder) {

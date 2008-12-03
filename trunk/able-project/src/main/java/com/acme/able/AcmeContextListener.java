@@ -12,7 +12,7 @@ public class AcmeContextListener extends AbleContextListener {
     }
 
     protected AbleModule getAbleModule() {
-        return new AbleModule(new AcmeConfiguration(), new AcmeStripesModule());
+        return new AcmeModule();
     }
 
     protected Class<? extends ActionBeanContext> getActionBeanContextType() {
